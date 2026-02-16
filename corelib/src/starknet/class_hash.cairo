@@ -55,8 +55,9 @@ pub(crate) impl ClassHashIntoFelt252 of Into<ClassHash, felt252> {
 }
 
 impl ClassHashZero of core::num::traits::Zero<ClassHash> {
+    #[feature("deprecated-starknet-consts")]
     fn zero() -> ClassHash {
-        0.try_into().unwrap()
+        class_hash_const::<0>()
     }
 
     #[inline]
